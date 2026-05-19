@@ -24,8 +24,8 @@ body {
   animation: gradientBG 50s ease infinite;
   position:relative;
 }
-  
-  /* Bubble blur background */
+
+/* Bubble blur background */
 body::before,
 body::after{
   content:"";
@@ -51,15 +51,15 @@ body::after{
   right:-100px;
   animation: float2 10s ease-in-out infinite alternate;
 }
-  
+
 canvas {
   position:fixed; top:0; left:0; width:150%; height:150%;
   z-index:0; pointer-events:none;
 }
 .card {
   position:relative; z-index:1;
-  background: #FFFFFF; border-radius:20px;
-  box-shadow:0 8px 30px rgba(207, 43, 43, 0.2);
+  background:#ffffff; border-radius:20px;
+  box-shadow:0 8px 30px rgba(207, 43, 122, 0.2);
   max-width:600px; width:90%; min-height:520px;
   display:flex; flex-direction:column; overflow:hidden;
   padding-bottom:60px; /* untuk ruang tombol musik */
@@ -89,7 +89,7 @@ p {font-size:20px; color:#333;}
 .keyboard .row {display:flex; justify-content:center; margin:5px 0;}
 .keyboard button {
   width:60px; height:60px; margin:5px; border:none; border-radius:10px;
-  font-size:20px; background:#e1b0b8; color:#fff; cursor:pointer;
+  font-size:20px; background:#800000; color:#fff; cursor:pointer;
   box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.2s;
 }
 .keyboard button:active {transform:scale(0.9); background:#e60073;}
@@ -104,6 +104,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
   display:flex; justify-content:space-between; gap:10px;
   padding:12px 20px; border-top:1px solid #eee; background:#fff;
 }
+
 /* Animasi Slide */
 @keyframes slideInRight { from {transform:translateX(100%); opacity:0;} to {transform:translateX(0); opacity:1;} }
 @keyframes slideOutLeft { from {transform:translateX(0); opacity:1;} to {transform:translateX(-100%); opacity:0;} }
@@ -165,7 +166,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
       <p style="margin-top:12px; font-size:16px; color:#555;"><i>* Clue: tanggal dan bulan</i></p>
     </div>
   </div>
-
+  
   <!-- Slide 2 -->
   <div class="slide" id="slide2">
     <div class="content">
