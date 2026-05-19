@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ucapan Ulang Tahun</title>
+<title>Happy Birthday Rizka Rahmayani | Ica</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 <style>
 body {
@@ -14,6 +14,7 @@ body {
   justify-content:center;
   align-items:center;
   font-family:'times new roman', cursive;
+
   background:
     radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 25%),
     radial-gradient(circle at bottom right, rgba(255,255,255,0.18), transparent 30%),
@@ -23,6 +24,7 @@ body {
   animation: gradientBG 50s ease infinite;
   position:relative;
 }
+
 /* Bubble blur background */
 body::before,
 body::after{
@@ -41,7 +43,6 @@ body::before{
   left:-100px;
   animation: float1 8s ease-in-out infinite alternate;
 }
-
 body::after{
   background:#ffd6e7;
   bottom:-150px;
@@ -56,7 +57,7 @@ video{
   width: 100%;
   max-width: 640px;
   height: auto;
-  border-radius: 15px;
+  border-radius: 5px;
   display: block;
   margin: 10px auto;
   object-fit: contain;
@@ -73,7 +74,7 @@ video{
   overflow-y:auto;
 }
 
-.card{
+/* .card{
   position:relative;
   z-index:1;
   background:#ffffff;
@@ -86,7 +87,69 @@ video{
   flex-direction:column;
   overflow:hidden;
   padding-bottom:120px;
+} */
+
+.card{
+  position:relative;
+  z-index:1;
+
+  width:90%;
+  max-width:500px;
+  height:78vh;
+
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+
+  border-radius:35px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.95),
+      rgba(255,240,245,0.88)
+    );
+
+  border:2px solid rgba(255,255,255,0.7);
+
+  box-shadow:
+    0 20px 40px rgba(128,0,0,0.25),
+    0 10px 20px rgba(255,105,180,0.2);
+
+  padding-bottom:120px;
+
+  transition:0.4s ease;
 }
+
+/* efek cahaya atas */
+.card::before{
+  content:"";
+  position:absolute;
+
+  top:-120px;
+  left:-80px;
+
+  width:250px;
+  height:250px;
+
+  background:rgba(255,255,255,0.35);
+
+  border-radius:50%;
+
+  filter:blur(20px);
+
+  pointer-events:none;
+}
+
+/* efek hover */
+.card:hover{
+  transform:translateY(-6px);
+
+  box-shadow:
+    0 25px 50px rgba(255,105,180,0.35),
+    0 15px 25px rgba(128,0,0,0.25);
+}
+
 .slide {
   position:absolute; top:0; left:0; right:0; bottom:0;
   display:flex; flex-direction:column;
@@ -99,14 +162,14 @@ video{
   justify-content:center; align-items:center;
   text-align:center; overflow-y:auto;
 }
-h1 {font-size:28px; margin:10px 0; color:#ff4d88;}
+h1 {font-size:28px; margin:10px 0; color:#800000;}
 p {font-size:12px; color:#333;}
 .pin-box {
   display:flex; gap:10px; justify-content:center; margin:15px 0;
 }
 .pin-box input {
   width:50px; height:60px; font-size:28px; text-align:center;
-  border-radius:10px; border:2px solid #ff4d88;
+  border-radius:10px; border:2px solid #800000;
 }
 .error {color:#ff0000; margin-top:10px;}
 .keyboard .row {display:flex; justify-content:center; margin:5px 0;}
@@ -115,14 +178,14 @@ p {font-size:12px; color:#333;}
   font-size:20px; background:#800000; color:#fff; cursor:pointer;
   box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.2s;
 }
-.keyboard button:active {transform:scale(0.9); background:#e60073;}
+.keyboard button:active {transform:scale(0.9); background:#800000;}
 img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); margin:15px 0;}
 .btn {
   padding:10px 20px; border:none; border-radius:10px;
-  background:#ff4d88; color:#fff; font-size:18px; cursor:pointer;
+  background:#800000; color:#fff; font-size:18px; cursor:pointer;
   box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.3s;
 }
-.btn:hover {background:#e60073;}
+.btn:hover {background:#ba0c0c;}
 .nav-btns {
   display:flex; justify-content:space-between; gap:10px;
   padding:12px 20px; border-top:1px solid #eee; background:#fff;
@@ -142,10 +205,55 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
 #musicToggle {
   position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
   padding:10px 20px; border:none; border-radius:10px;
-  background:#ff4d88; color:#fff; font-size:16px; cursor:pointer;
+  background:#800000; color:#fff; font-size:16px; cursor:pointer;
   box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.3s; z-index:10;
 }
-#musicToggle:hover {background:#e60073;}
+#musicToggle:hover {background:#ba0c0c;}
+
+/* Slide romantis */
+.romantic-content{
+  padding:30px 25px;
+  justify-content:center;
+}
+
+.romantic-img{
+  width:100%;
+  max-width:400px;
+  border-radius:20px;
+  object-fit:cover;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  margin-bottom:20px;
+}
+
+.love-divider{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:10px 0 20px;
+}
+
+.love-divider::before,
+.love-divider::after{
+  content:"";
+  height:1px;
+  width:80px;
+  background:#ff9dbb;
+}
+
+.love-divider span{
+  margin:0 12px;
+  color:#ff4d88;
+  font-size:22px;
+}
+
+.romantic-text{
+  font-size:15px;
+  line-height:1.8;
+  color:#444;
+  margin:8px 0;
+  max-width:420px;
+}
 </style>
 </head>
 <body>
@@ -189,23 +297,26 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
       <p style="margin-top:12px; font-size:16px; color:#555;"><i>* Clue: tanggal dan bulan</i></p>
     </div>
   </div>
-  
+
   <!-- Slide 2 -->
   <div class="slide" id="slide2">
     <div class="content">
-      <h1>Selamat Ulang Tahun Icaa🎉❤️</h1>
+      <h1>Selamat Ulang Tahun Ica 🎉❤️</h1>
       <video controls>
-    <source src="ica1.mp4" type="video/mp4">
-    <!-- <source src="video.webm" type="video/webm"> -->
-    Browser Anda tidak mendukung tag video.
+    <source src="vidica.mp4" type="video/mp4">
     </video>
+
+    <div class="love-divider">
+      <span>❤</span>
+    </div>
+
       <p>Hai Icaa, Selamat ulang tahun yaa,, Selamat merayakan hari, Selamat meng-Amiini beribu doa dan selamat bertambah usia!. 
         Semoga sehat, tenang dan senang selalu menyertai hidup icaa. 
         Semoga semua harap yang tertunda dan segala hal yang sedang diusahakan segera Allah berikan dan kabulkan. 
-        Berkah umurnya, panjang umur dalam kebaikan dan semoga selalu dilancarkan rezekinya, Aamiin🤲🏻</p><br>
+        Berkah umurnya, panjang umur dalam kebaikan dan semoga selalu dilancarkan rezekinya, Aamiin🤲🏻</p>
 
        <p> Icaa, di kehidupan yang cuma sekali ini, semoga ica selalu berbahagia atas takdir yang sudah digariskan, dan ica tentu berhak dapat semua kebahagiaan di dunia ini.
-        Thanks for holding on and making this far,  you've survive so much, i'm glad you're here and i'm really proud of youu!!. I Love You, Icaa❤️ -abang</p>
+        Thanks for holding on and making this far,  you've survive so much, i'm glad you're here and i'm really proud of youu!!. I Love You, Icaa🫶🏻💐</p>
     </div>
     <div class="nav-btns">
       <button class="btn" onclick="prevSlide()">⬅ Kembali</button>
@@ -216,20 +327,30 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
   <!-- Slide 3 -->
   <div class="slide" id="slide3">
     <div class="content">
-      <h1>Doa & Harapan ✨</h1>
-      <video controls>
+      <!-- <h1>Doa & Harapan ✨</h1> -->
+       <video controls>
     <source src="us2.mp4" type="video/mp4">
-    <!-- <source src="video.webm" type="video/webm"> -->
-    Browser Anda tidak mendukung tag video.
 </video>
-      <!-- <img src="us2.mp4" alt="Doa dan Harapan"> -->
-      <p>Hai Icaa, Selamat ulang tahun yaa,, Selamat merayakan hari, Selamat meng-Amiini beribu doa dan selamat bertambah usia!. 
-        Semoga sehat, tenang dan senang selalu menyertai hidup icaa. 
-        Semoga semua harap yang tertunda dan segala hal yang sedang diusahakan segera Allah berikan dan kabulkan. 
-        Berkah umurnya, panjang umur dalam kebaikan dan semoga selalu dilancarkan rezekinya, Aamiin🤲🏻</p><br>
 
-       <p> Icaa, di kehidupan yang cuma sekali ini, semoga ica selalu berbahagia atas takdir yang sudah digariskan, dan ica tentu berhak dapat semua kebahagiaan di dunia ini.
-        Thanks for holding on and making this far,  you've survive so much, i'm glad you're here and i'm really proud of youu!!. I Love You, Icaa🫶🏻💐</p>>
+<div class="love-divider">
+      <span>❤</span>
+    </div>
+      <!-- <img src="us2.mp4" alt="Doa dan Harapan"> -->
+      <p>aku ga pernah nyangka kita bisa sampai sejauh ini. dari yang awalnya cuma kenal biasa, 
+        sekarang jadi seseorang yang paling sering aku pikirin. cara kamu memperlakukan aku bikin semuanya terasa nyata,
+        bukan sekadar kebetulan. aku menikmati setiap cerita yang kita lewatin, bahkan yang sederhana sekalipun. dan tanpa sadar,
+        aku mulai naruh harapan lebih jauh dari yang seharusnya. aku ga cuma mau ini jadi cerita sementara,
+        aku pengen suatu saat nanti, semua yang kita jalanin sekarang benar-benar punya arah dan tujuan yang sama.</p>
+
+       <p>aku selalu ngerasa waktu jalan terlalu cepat setiap sama kamu. 
+        hal-hal sederhana yang kita lewatin bareng tiba-tiba terasa berarti, 
+        sampai aku mulai berharap ada lebih banyak hari untuk dihabiskan dengan cara yang sama. a
+        ku ga cuma nyaman, aku juga merasa pulang. dan itu yang bikin aku takut karena semakin lama sama kamu, 
+        semakin sulit ngebayangin kalau suatu hari semuanya harus selesai. diam-diam, 
+        aku berharap ini bukan cuma tentang beberapa hari lagi, tapi tentang selamanya.</p>
+
+        <p>-maaf kalo alay hehe</p>
+
     </div>
     <div class="nav-btns">
       <button class="btn" onclick="prevSlide()">⬅ Kembali</button>
@@ -238,20 +359,61 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
   </div>
 
   <!-- Slide 4 -->
-  <div class="slide" id="slide4">
-    <div class="content">
-      <h1>Kata-kata Romantis ❤️</h1>
-      <img src="us.jpeg" alt="Foto Romantis">
-      <p>bla bla bla.</p>
+<div class="slide" id="slide4">
+  <div class="content romantic-content">
+
+    <img src="us.jpeg" alt="Foto Romantis" class="romantic-img">
+
+    <div class="love-divider">
+      <span>❤</span>
     </div>
-    <div class="nav-btns">
-      <button class="btn" onclick="prevSlide()">⬅ Kembali</button>
-      <button class="btn" onclick="nextSlide()">Lanjut ➡</button>
+
+    <p class="romantic-text">
+      No matter what happens, just remember you're my baby and i love you more than anything
+    </p>
+
+    <p class="romantic-text">
+      fell in love with you, not because of my eyes saw, but because of what my heart felt
+    </p>
+
+    <p class="romantic-text">
+      Even the whole world is looking at me, my eyes would still be on you❤️
+    </p>
+
+  </div>
+
+  <div class="nav-btns">
+    <button class="btn" onclick="prevSlide()">⬅ Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut ➡</button>
+  </div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide" id="slide5">
+  <div class="content romantic-content">
+
+    <img src="icaa.jpeg" alt="Foto Romantis" class="romantic-img">
+
+    <div class="love-divider">
+      <span>❤</span>
+    </div>
+
+    <p class="romantic-text">
+      <U><B>Indah</B></U> adalah kata, dan <u><b>Kamu</b></u> adalah wujudnya
+    </p>
+    <div class="love-divider">
+      <span>❤</span>
     </div>
   </div>
 
- <!-- Slide 5 -->
-  <div class="slide" id="slide5">
+  <div class="nav-btns">
+    <button class="btn" onclick="prevSlide()">⬅ Kembali</button>
+    <button class="btn" onclick="nextSlide()">Lanjut ➡</button>
+  </div>
+</div>
+
+  <!-- Slide 10 -->
+  <div class="slide" id="slide10">
     <div class="content">
       <h1>Terima Kasih 🙏</h1>
       <img src="icaa.jpeg" alt="Terima Kasih">
@@ -296,7 +458,7 @@ function checkPin(){
     inputs.forEach(i=>i.value="");
   }
 }
-function nextSlide(){if(currentSlide<5) animateSlides(currentSlide,currentSlide+1);}
+function nextSlide(){if(currentSlide<10) animateSlides(currentSlide,currentSlide+1);}
 function prevSlide(){if(currentSlide>2) animateSlides(currentSlide,currentSlide-1);}
 function pressNum(num){
   const inputs=document.querySelectorAll('#slide1 input');
