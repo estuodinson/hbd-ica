@@ -24,6 +24,34 @@ body {
   animation: gradientBG 50s ease infinite;
   position:relative;
 }
+  
+  /* Bubble blur background */
+body::before,
+body::after{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.35;
+  z-index:0;
+}
+
+body::before{
+  background:#ffffff;
+  top:-150px;
+  left:-100px;
+  animation: float1 8s ease-in-out infinite alternate;
+}
+
+body::after{
+  background:#ffd6e7;
+  bottom:-150px;
+  right:-100px;
+  animation: float2 10s ease-in-out infinite alternate;
+}
+  
 canvas {
   position:fixed; top:0; left:0; width:150%; height:150%;
   z-index:0; pointer-events:none;
