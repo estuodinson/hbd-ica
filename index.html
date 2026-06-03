@@ -5,319 +5,461 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Happy Birthday | Ica</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-body {
+
+body{
   margin:0;
   height:100vh;
   overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family:'times new roman', cursive;
+  font-family:'Times New Roman', serif;
 
   background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 25%),
-    radial-gradient(circle at bottom right, rgba(255,255,255,0.18), transparent 30%),
-    linear-gradient(-45deg, #800000, #ff7eb3, #ff758c, #800000);
+    radial-gradient(circle at 20% 20%, rgba(59,130,246,.18), transparent 25%),
+    radial-gradient(circle at 80% 80%, rgba(96,165,250,.15), transparent 30%),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 40%),
+    linear-gradient(
+      135deg,
+      #020617 0%,
+      #0f172a 25%,
+      #1e293b 50%,
+      #0f172a 75%,
+      #020617 100%
+    );
 
-  background-size: 400% 400%;
-  animation: gradientBG 50s ease infinite;
+  background-size:400% 400%;
+  animation:gradientBG 20s ease infinite;
   position:relative;
 }
 
-/* Bubble blur background */
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Glow Background */
 body::before,
 body::after{
   content:"";
   position:absolute;
-  width:500px;
-  height:500px;
+  width:550px;
+  height:550px;
   border-radius:50%;
-  filter:blur(120px);
-  opacity:0.35;
+  filter:blur(140px);
+  opacity:.35;
   z-index:0;
 }
+
 body::before{
-  background:#ffffff;
-  top:-150px;
-  left:-100px;
-  animation: float1 8s ease-in-out infinite alternate;
+  background:#2563eb;
+  top:-180px;
+  left:-180px;
+  animation:float1 10s ease-in-out infinite alternate;
 }
+
 body::after{
-  background:#ffd6e7;
-  bottom:-150px;
-  right:-100px;
-  animation: float2 10s ease-in-out infinite alternate;
-}
-canvas {
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  z-index:0; pointer-events:none;
-}
-video{
-  width: 100%;
-  max-width: 640px;
-  height: auto;
-  border-radius: 5px;
-  display: block;
-  margin: 10px auto;
-  object-fit: contain;
+  background:#60a5fa;
+  bottom:-180px;
+  right:-180px;
+  animation:float2 12s ease-in-out infinite alternate;
 }
 
-.content{
-  flex:1;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:center;
-  text-align:center;
-  overflow-y:auto;
+@keyframes float1{
+  from{transform:translateY(0);}
+  to{transform:translateY(60px);}
 }
 
-/* .card{
-  position:relative;
-  z-index:1;
-  background:#ffffff;
-  border-radius:20px;
-  box-shadow:0 8px 30px rgba(207, 43, 122, 0.2);
-  max-width:480px;
-  width:90%;
-  height:75vh;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  padding-bottom:120px;
-} */
+@keyframes float2{
+  from{transform:translateY(0);}
+  to{transform:translateY(-60px);}
+}
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* ========================= */
+/* CARD GLASSMORPHISM LUXURY */
+/* ========================= */
 
 .card{
   position:relative;
   z-index:1;
 
   width:90%;
-  max-width:500px;
-  height:78vh;
+  max-width:520px;
+  height:80vh;
 
   display:flex;
   flex-direction:column;
   overflow:hidden;
 
-  border-radius:35px;
+  border-radius:32px;
 
   background:
     linear-gradient(
-      145deg,
-      rgba(255,255,255,0.95),
-      rgba(255,240,245,0.88)
+      135deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.04)
     );
 
-  border:2px solid rgba(255,255,255,0.7);
+  backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+
+  border:1px solid rgba(255,255,255,.15);
 
   box-shadow:
-    0 20px 40px rgba(128,0,0,0.25),
-    0 10px 20px rgba(255,105,180,0.2);
+    0 10px 40px rgba(0,0,0,.45),
+    0 0 40px rgba(37,99,235,.15);
 
   padding-bottom:120px;
 
-  transition:0.4s ease;
+  transition:.4s ease;
 }
 
-/* efek cahaya atas */
-.card::before{
-  content:"";
+.slide{
   position:absolute;
-
-  top:-120px;
-  left:-80px;
-
-  width:250px;
-  height:250px;
-
-  background:rgba(255,255,255,0.35);
-
-  border-radius:50%;
-
-  filter:blur(20px);
-
-  pointer-events:none;
-}
-
-/* efek hover */
-.card:hover{
-  transform:translateY(-6px);
-
-  box-shadow:
-    0 25px 50px rgba(255,105,180,0.35),
-    0 15px 25px rgba(128,0,0,0.25);
-}
-
-.slide {
-  position:absolute; top:0; left:0; right:0; bottom:0;
-  display:flex; flex-direction:column;
-  opacity:0; pointer-events:none;
-}
-.slide.active {opacity:1; pointer-events:auto;}
-.content {
-  flex:1; padding:20px;
-  display:flex; flex-direction:column;
-  justify-content:center; align-items:center;
-  text-align:center; overflow-y:auto;
-}
-h1 {font-size:28px; margin:10px 0; color:#800000;}
-p {font-size:12px; color:#333;}
-.pin-box {
-  display:flex; gap:10px; justify-content:center; margin:15px 0;
-}
-.pin-box input {
-  width:50px; height:60px; font-size:28px; text-align:center;
-  border-radius:10px; border:2px solid #800000;
-}
-.error {color:#ff0000; margin-top:10px;}
-.keyboard .row {display:flex; justify-content:center; margin:5px 0;}
-.keyboard button {
-  width:60px; height:60px; margin:5px; border:none; border-radius:10px;
-  font-size:20px; background:#800000; color:#fff; cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.2s;
-}
-.keyboard button:active {transform:scale(0.9); background:#800000;}
-img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); margin:15px 0;}
-.btn {
-  padding:10px 20px; border:none; border-radius:10px;
-  background:#800000; color:#fff; font-size:18px; cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.3s;
-}
-.btn:hover {background:#ba0c0c;}
-.nav-btns {
-  display:flex; justify-content:space-between; gap:10px;
-  padding:12px 20px; border-top:1px solid #eee; background:#fff;
-}
-
-/* Animasi shake PIN salah */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-10px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(8px); }
-  100% { transform: translateX(0); }
-}
-
-.pin-box.shake {
-  animation: shake 0.4s ease;
-}
-
-#wrongPinAnim{
-  position:fixed;
   inset:0;
+
   display:flex;
-  justify-content:center;
-  align-items:center;
-  background:rgba(0,0,0,0.45);
-  backdrop-filter:blur(5px);
+  flex-direction:column;
 
   opacity:0;
   pointer-events:none;
-  z-index:999;
 
-  transition:0.3s;
+  transition:.5s;
 }
 
-#wrongPinAnim.show{
+.slide.active{
   opacity:1;
+  pointer-events:auto;
 }
 
-#wrongPinAnim img{
-  width:220px;
-  animation:
-    wrongZoom 0.6s ease,
-    wrongShake 0.6s ease;
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.18),
+      transparent 40%,
+      transparent 60%,
+      rgba(255,255,255,.08)
+    );
+
+  pointer-events:none;
 }
 
-/* zoom muncul */
-@keyframes wrongZoom{
-  0%{
-    transform:scale(0.3) rotate(-15deg);
-    opacity:0;
-  }
-  60%{
-    transform:scale(1.1) rotate(8deg);
-    opacity:1;
-  }
-  100%{
-    transform:scale(1) rotate(0deg);
-  }
+.card:hover{
+  transform:translateY(-8px);
+
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.55),
+    0 0 60px rgba(59,130,246,.25);
 }
 
-/* getar lucu */
-@keyframes wrongShake{
-  0%,100%{ margin-left:0; }
-  20%{ margin-left:-12px; }
-  40%{ margin-left:12px; }
-  60%{ margin-left:-8px; }
-  80%{ margin-left:8px; }
-}
+/* ========================= */
+/* CONTENT */
+/* ========================= */
 
-/* Animasi Slide */
-@keyframes slideInRight { from {transform:translateX(100%); opacity:0;} to {transform:translateX(0); opacity:1;} }
-@keyframes slideOutLeft { from {transform:translateX(0); opacity:1;} to {transform:translateX(-100%); opacity:0;} }
-@keyframes slideInLeft { from {transform:translateX(-100%); opacity:0;} to {transform:translateX(0); opacity:1;} }
-@keyframes slideOutRight { from {transform:translateX(0); opacity:1;} to {transform:translateX(100%); opacity:0;} }
-.slide-in-right {animation:slideInRight 0.6s forwards;}
-.slide-out-left {animation:slideOutLeft 0.6s forwards;}
-.slide-in-left {animation:slideInLeft 0.6s forwards;}
-.slide-out-right {animation:slideOutRight 0.6s forwards;}
-
-/* Tombol musik toggle */
-#musicToggle {
-  position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
-  padding:10px 20px; border:none; border-radius:10px;
-  background:#800000; color:#fff; font-size:16px; cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2); transition:0.3s; z-index:10;
-}
-#musicToggle:hover {background:#ba0c0c;}
-
-/* Slide romantis */
-.romantic-content{
-  padding:30px 25px;
-  justify-content:center;
-}
-
-.romantic-img{
-  width:100%;
-  max-width:400px;
-  border-radius:20px;
-  object-fit:cover;
-  box-shadow:0 8px 20px rgba(0,0,0,0.25);
-  margin-bottom:20px;
-}
-
-.love-divider{
-  width:100%;
+.content{
+  flex:1;
+  padding:25px;
   display:flex;
-  align-items:center;
+  flex-direction:column;
   justify-content:center;
-  margin:10px 0 20px;
+  align-items:center;
+  text-align:center;
+  overflow-y:auto;
 }
+
+h1{
+  color:#fff;
+  font-size:30px;
+  margin-bottom:15px;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,.25),
+    0 0 20px rgba(96,165,250,.2);
+}
+
+p{
+  color:rgba(255,255,255,.85);
+  line-height:1.8;
+  font-size:14px;
+}
+
+/* ========================= */
+/* PIN BOX */
+/* ========================= */
+
+.pin-box{
+  display:flex;
+  gap:12px;
+  margin:20px 0;
+}
+
+.pin-box input{
+  width:55px;
+  height:65px;
+
+  border-radius:16px;
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid rgba(255,255,255,.15);
+
+  backdrop-filter:blur(10px);
+
+  color:white;
+
+  font-size:28px;
+  text-align:center;
+
+  outline:none;
+
+  transition:.3s;
+}
+
+.pin-box input:focus{
+  border-color:#60a5fa;
+
+  box-shadow:
+    0 0 20px rgba(96,165,250,.35);
+}
+
+/* ========================= */
+/* KEYPAD */
+/* ========================= */
+
+.keyboard .row{
+  display:flex;
+  justify-content:center;
+  margin:5px 0;
+}
+
+.keyboard button{
+  width:60px;
+  height:60px;
+  margin:5px;
+
+  border:none;
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.05)
+    );
+
+  color:white;
+
+  font-size:20px;
+  cursor:pointer;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,.25);
+
+  transition:.25s;
+}
+
+.keyboard button:hover{
+  transform:translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(96,165,250,.25),
+      rgba(59,130,246,.15)
+    );
+}
+
+.keyboard button:active{
+  transform:scale(.95);
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.btn{
+  padding:12px 24px;
+
+  border:none;
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+
+  box-shadow:
+    0 6px 20px rgba(37,99,235,.35);
+
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 10px 30px rgba(37,99,235,.45);
+}
+
+/* ========================= */
+/* NAVIGATION */
+/* ========================= */
+
+.nav-btns{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+
+  padding:15px 20px;
+
+  background:
+    rgba(255,255,255,.05);
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+/* ========================= */
+/* IMAGES */
+/* ========================= */
+
+img{
+  max-width:85%;
+  border-radius:22px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
+  margin:15px 0;
+
+  transition:.4s;
+}
+
+img:hover{
+  transform:scale(1.03);
+}
+
+/* ========================= */
+/* MUSIC BUTTON */
+/* ========================= */
+
+#musicToggle{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+
+  padding:12px 24px;
+
+  border:none;
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+    );
+
+  color:white;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 8px 25px rgba(37,99,235,.35);
+
+  z-index:20;
+}
+
+#musicToggle:hover{
+  transform:translateX(-50%) translateY(-2px);
+}
+
+/* ========================= */
+/* LOVE DIVIDER */
+/* ========================= */
 
 .love-divider::before,
 .love-divider::after{
   content:"";
-  height:1px;
   width:80px;
-  background:#ff9dbb;
+  height:1px;
+
+  background:
+    rgba(255,255,255,.25);
 }
 
 .love-divider span{
   margin:0 12px;
-  color:#ff4d88;
-  font-size:22px;
+  color:#93c5fd;
+  font-size:24px;
+}
+
+/* ========================= */
+/* ERROR */
+/* ========================= */
+
+.error{
+  color:#fca5a5;
+  margin-top:10px;
+  font-weight:500;
+}
+
+video{
+  width:100%;
+  max-width:430px;
+  border-radius:20px;
+  display:block;
+  margin:10px auto;
+  object-fit:cover;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
 }
 
 .romantic-text{
   font-size:15px;
   line-height:1.8;
-  color:#444;
+  color:rgba(255,255,255,.85);
   margin:8px 0;
   max-width:420px;
+}
+
+.romantic-content{
+  padding:25px;
+}
+
+.romantic-img{
+  width:100%;
+  max-width:350px;
+  border-radius:20px;
+  object-fit:cover;
 }
 
 #correctPinAnim{
@@ -328,14 +470,14 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
   justify-content:center;
   align-items:center;
 
-  background:rgba(0,0,0,0.45);
-  backdrop-filter:blur(5px);
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);
 
   opacity:0;
   pointer-events:none;
 
-  z-index:999;
-  transition:0.3s;
+  z-index:9999;
+  transition:.3s;
 }
 
 #correctPinAnim.show{
@@ -343,53 +485,37 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
 }
 
 .success-box{
-  background:white;
-  padding:35px 45px;
-  border-radius:25px;
+  width:320px;
+
+  background:rgba(255,255,255,.12);
+
+  backdrop-filter:blur(25px);
+
+  border:1px solid rgba(255,255,255,.2);
+
+  border-radius:30px;
+
+  padding:30px;
 
   text-align:center;
 
-  box-shadow:0 15px 40px rgba(0,0,0,0.25);
+  color:white;
 
-  animation:successPop 0.8s ease;
-}
-
-.checkmark{
-  font-size:70px;
-  color:#ff4d88;
-  animation:heartBeat 1s infinite;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.4);
 }
 
 .success-box h2{
-  margin:10px 0 5px;
-  color:#800000;
+  color:white;
 }
 
 .success-box p{
-  color:#555;
-  font-size:15px;
+  color:rgba(255,255,255,.85);
 }
 
-@keyframes successPop{
-  0%{
-    transform:scale(0.5);
-    opacity:0;
-  }
-  70%{
-    transform:scale(1.08);
-  }
-  100%{
-    transform:scale(1);
-    opacity:1;
-  }
-}
-
-@keyframes heartBeat{
-  0%{ transform:scale(1); }
-  25%{ transform:scale(1.2); }
-  50%{ transform:scale(1); }
-  75%{ transform:scale(1.2); }
-  100%{ transform:scale(1); }
+.success-box img{
+  width:180px;
+  margin-top:15px;
 }
 
 </style>
@@ -441,7 +567,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
     <div class="content">
       <h1>Selamat Ulang Tahun Ica 🎉❤️</h1>
       <video controls>
-    <source src="vidica.mp4" type="video/mp4">
+    <source src="asset/vidica.mp4" type="video/mp4">
     </video>
 
     <div class="love-divider">
@@ -467,7 +593,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
     <div class="content">
       <!-- <h1>Doa & Harapan ✨</h1> -->
        <video controls>
-    <source src="us2.mp4" type="video/mp4">
+    <source src="asset/us2.mp4" type="video/mp4">
 </video>
 
 <div class="love-divider">
@@ -500,7 +626,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
   <div class="slide" id="slide4">
     <div class="content">
       <!-- <h1>Terima Kasih 🙏</h1> -->
-      <img src="us3.jpeg" alt="Terima Kasih">
+      <img src="asset/us3.jpeg" alt="Terima Kasih">
       <div class="love-divider">
       <span>❤</span>
     </div>
@@ -527,7 +653,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
 <div class="slide" id="slide5">
   <div class="content romantic-content">
 
-    <img src="us.jpeg" alt="Foto Romantis" class="romantic-img">
+    <img src="asset/us.jpeg" alt="Foto Romantis" class="romantic-img">
 
     <div class="love-divider">
       <span>❤</span>
@@ -557,7 +683,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
 <div class="slide" id="slide6">
   <div class="content romantic-content">
 
-    <img src="icaa.jpeg" alt="Foto Romantis" class="romantic-img">
+    <img src="asset/icaa.jpeg" alt="Foto Romantis" class="romantic-img">
 
     <div class="love-divider">
       <span>❤</span>
@@ -582,7 +708,7 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
   <div class="slide" id="slide10">
     <div class="content">
       <!-- <h1>Terima Kasih 🙏</h1> -->
-      <img src="estu.jpeg" alt="Terima Kasih">
+      <img src="asset/estu.jpeg" alt="Terima Kasih">
       <!-- <div class="love-divider">
       <span>❤</span>
     </div> -->
@@ -596,19 +722,19 @@ img {max-width:80%; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.3); m
 </div>
 
 <!-- Animasi PIN Salah -->
-<div id="wrongPinAnim">
-  <img src="salah.png" alt="Wrong PIN">
-</div>
+<!-- <div id="wrongPinAnim">
+  <img src="asset/salah.png" alt="Wrong PIN">
+</div> -->
 
 <!-- Animasi PIN Benar -->
-<div id="correctPinAnim">
+<!-- <div id="correctPinAnim">
   <div class="success-box">
-    <!-- <div class="checkmark">❤</div>
+    <div class="checkmark">❤</div>
     <h2>PIN Benar</h2>
-    <p>Welcome Icaa ✨</p> -->
-    <img src="benar.png" alt="Wrong PIN">
+    <p>Welcome Icaa ✨</p>
+    <img src="asset/benar-removebg-preview.png" alt="Wrong PIN">
   </div>
-</div>
+</div> -->
 
 <!-- Tombol musik toggle -->
 <button id="musicToggle" onclick="toggleMusic()">▶ Play Musik</button>
@@ -688,7 +814,7 @@ function deleteNum(){
 }
 
 // Musik toggle
-let audio=new Audio("Westlife.mp3"); audio.loop=true;
+let audio=new Audio("asset/Westlife.mp3"); audio.loop=true;
 let isPlaying=false;
 function toggleMusic(){
   if(isPlaying){audio.pause(); isPlaying=false; document.getElementById('musicToggle').innerText="▶ Play Musik";}
@@ -698,7 +824,14 @@ function toggleMusic(){
 // Partikel love
 const canvas=document.getElementById("canvas"); const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth; canvas.height=window.innerHeight;
-class Heart{constructor(){this.x=Math.random()*canvas.width; this.y=canvas.height+Math.random()*100; this.size=10+Math.random()*20; this.speed=0.5+Math.random()*1.5; this.alpha=0.5+Math.random()*0.5; this.color="rgba(255,0,100,"+this.alpha+")";}draw(){ctx.save();ctx.translate(this.x,this.y);ctx.fillStyle=this.color;ctx.beginPath();ctx.moveTo(0,-this.size/2);ctx.bezierCurveTo(this.size/2,-this.size,this.size,-this.size/4,0,this.size);ctx.bezierCurveTo(-this.size,-this.size/4,-this.size/2,-this.size,0,-this.size/2);ctx.closePath();ctx.fill();ctx.restore();}update(){this.y-=this.speed;if(this.y<-50){this.y=canvas.height+50;this.x=Math.random()*canvas.width;}this.draw();}}
+class Heart{constructor(){this.x=Math.random()*canvas.width; this.y=canvas.height+Math.random()*100; this.size=10+Math.random()*20; this.speed=0.5+Math.random()*1.5; this.alpha=0.5+Math.random()*0.5; const colors=[
+  "rgba(255,255,255,"+this.alpha+")",
+  "rgba(147,197,253,"+this.alpha+")",
+  "rgba(96,165,250,"+this.alpha+")",
+  "rgba(59,130,246,"+this.alpha+")"
+];
+
+this.color=colors[Math.floor(Math.random()*colors.length)];}draw(){ctx.save();ctx.translate(this.x,this.y);ctx.fillStyle=this.color;ctx.beginPath();ctx.moveTo(0,-this.size/2);ctx.bezierCurveTo(this.size/2,-this.size,this.size,-this.size/4,0,this.size);ctx.bezierCurveTo(-this.size,-this.size/4,-this.size/2,-this.size,0,-this.size/2);ctx.closePath();ctx.fill();ctx.restore();}update(){this.y-=this.speed;if(this.y<-50){this.y=canvas.height+50;this.x=Math.random()*canvas.width;}this.draw();}}
 let hearts=[]; for(let i=0;i<40;i++){hearts.push(new Heart());}
 function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);hearts.forEach(h=>h.update()); requestAnimationFrame(animate);}
 animate(); window.addEventListener("resize",()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
